@@ -9,7 +9,7 @@ import io.opentelemetry.sdk.autoconfigure.spi.ConfigurablePropagatorProvider;
 public class DemoPropagatorProvider implements ConfigurablePropagatorProvider {
     @Override
     public TextMapPropagator getPropagator(ConfigProperties config) {
-        return new DemoPropagator();
+        return new DemoPropagator(config.getString("service.name"));
     }
 
     @Override
